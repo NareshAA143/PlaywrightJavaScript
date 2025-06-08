@@ -12,7 +12,7 @@ test('alerts',async({page})=>{
     })
 
     await page.click('#alertBtn')//clicking on alert button
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(3000)
 
 })
 
@@ -28,11 +28,11 @@ test('alerts2',async ({page})=>{
     
         await page.click('#confirmBtn')//clicking on alert button
         await expect(page.locator('#demo')).toHaveText('You pressed OK!')//validating text
-        await page.waitForTimeout(5000)
+        await page.waitForTimeout(3000)
 })
 
 //3.Alert with input box, Ok &Cancel button
-test.only('alerts3',async ({page})=>{
+test('alerts3',async ({page})=>{
     await page.goto('https://testautomationpractice.blogspot.com/')
     page.on('dialog',async dialog=>{
         expect(dialog.type()).toContain('prompt')//type of alert
@@ -43,7 +43,7 @@ test.only('alerts3',async ({page})=>{
     
         await page.click('#promptBtn')//clicking on alert button
         await expect(page.locator('#demo')).toHaveText('Hello Tom! How are you today?')//validating text
-        await page.waitForTimeout(5000)
+        await page.waitForTimeout(3000)
 
 
 })
